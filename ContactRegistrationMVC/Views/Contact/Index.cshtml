@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Contact List";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start" >
+        <a class="btn btn-primary" role="button" asp-controller="Contact" asp-action="CreateContact" >Adicionar novo contato</a>
+    </div>
+    <br />
+
+    <h1 class="display 4">Listagem de contatos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">NOME</th>
+                <th scope="col">E-MAIL</th>
+                <th scope="col">CONTATO</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto@hhh</td>
+                <td>333333</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="button" class="btn btn-outline-primary" asp-controller="Contact" asp-action="EditContact">Editar</a>
+                        <a role="button" class="btn btn-outline-danger" asp-controller="Contact" asp-action="ConfirmationDeleteContact">Apagar </a>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton@ggg</td>
+                <td>22222</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="button" class="btn btn-outline-primary" asp-controller="Contact" asp-action="EditContact">Editar</a>
+                        <a role="button" class="btn btn-outline-danger" asp-controller="Contact" asp-action="ConfirmationDeleteContact">Apagar </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Jacob</td>
+                <td>Thornton@ggg</td>
+                <td>2222222</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="button" class="btn btn-outline-primary" asp-controller="Contact" asp-action="EditContact">Editar</a>
+                        <a role="button" class="btn btn-outline-danger" asp-controller="Contact" asp-action="ConfirmationDeleteContact">Apagar </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
