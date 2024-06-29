@@ -1,4 +1,6 @@
 using ContactRegistrationMVC.Data;
+using ContactRegistrationMVC.Repository;
+using ContactRegistrationMVC.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContactRegistrationMVC
@@ -16,6 +18,8 @@ namespace ContactRegistrationMVC
             //configuring database
             IServiceCollection serviceCollection = builder.Services.AddDbContext<BankContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConection")));
+
+            builder.Services.AddScoped<IContactRepository, ContactRepository>();
 
             var app = builder.Build();
 
