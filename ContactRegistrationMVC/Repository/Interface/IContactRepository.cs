@@ -4,6 +4,10 @@ namespace ContactRegistrationMVC.Repository.Interface
 {
     public interface IContactRepository
     {
-        ContactModel Adiconar(ContactModel contact);
+
+        List<ContactModel> SearchAllRecords();
+        ContactModel ToAdd(ContactModel contact);
+
+        
     }
 }

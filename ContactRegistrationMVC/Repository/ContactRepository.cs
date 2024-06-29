@@ -12,7 +12,12 @@ namespace ContactRegistrationMVC.Repository
             _bankContext = bankContext;
         }
 
-        public ContactModel Adiconar(ContactModel contact)
+        public List<ContactModel> SearchAllRecords()
+        {
+            return _bankContext.Contacts.ToList();
+        }
+
+        public ContactModel ToAdd(ContactModel contact)
         {
             _bankContext.Contacts.Add(contact);
             _bankContext.SaveChanges(); 

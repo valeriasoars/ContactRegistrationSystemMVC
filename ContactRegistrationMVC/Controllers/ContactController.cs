@@ -14,7 +14,8 @@ namespace ContactRegistrationMVC.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+           List<ContactModel> contacts =  _contactRepository.SearchAllRecords();
+            return View(contacts);
         }
 
         public IActionResult CreateContact()
@@ -35,7 +36,7 @@ namespace ContactRegistrationMVC.Controllers
         [HttpPost]
         public IActionResult CreateContact(ContactModel contact)
         {
-            _contactRepository.Adiconar(contact);
+            _contactRepository.ToAdd(contact);
             return RedirectToAction("Index");
         }
     }
