@@ -1,3 +1,6 @@
+using ContactRegistrationMVC.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ContactRegistrationMVC
 {
     public class Program
@@ -8,6 +11,11 @@ namespace ContactRegistrationMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddEndpointsApiExplorer();
+
+            //configuring database
+            IServiceCollection serviceCollection = builder.Services.AddDbContext<BankContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConection")));
 
             var app = builder.Build();
 
