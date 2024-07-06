@@ -23,9 +23,10 @@ namespace ContactRegistrationMVC.Controllers
             return View();
         }
 
-        public IActionResult EditContact()
+        public IActionResult EditContact(int id)
         {
-            return View();
+            ContactModel contato = _contactRepository.ListById(id);
+            return View(contato);
         }
 
         public IActionResult ConfirmationDeleteContact()
@@ -37,6 +38,13 @@ namespace ContactRegistrationMVC.Controllers
         public IActionResult CreateContact(ContactModel contact)
         {
             _contactRepository.ToAdd(contact);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult UpdateContact(ContactModel contact)
+        {
+            _contactRepository.ToUpdate(contact);
             return RedirectToAction("Index");
         }
     }
