@@ -25,13 +25,21 @@ namespace ContactRegistrationMVC.Controllers
 
         public IActionResult EditContact(int id)
         {
-            ContactModel contato = _contactRepository.ListById(id);
-            return View(contato);
+            ContactModel contact = _contactRepository.ListById(id);
+            return View(contact);
         }
 
-        public IActionResult ConfirmationDeleteContact()
+        public IActionResult ConfirmationDeleteContact(int id)
         {
-            return View();
+            ContactModel contact = _contactRepository.ListById(id);
+            return View(contact);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            _contactRepository.Delete(id);
+            return RedirectToAction("Index");
+
         }
 
         [HttpPost]

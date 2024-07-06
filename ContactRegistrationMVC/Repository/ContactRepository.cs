@@ -12,6 +12,7 @@ namespace ContactRegistrationMVC.Repository
             _bankContext = bankContext;
         }
 
+
         public ContactModel ListById(int id)
         {
             return _bankContext.Contacts.FirstOrDefault(x => x.Id == id);
@@ -44,5 +45,18 @@ namespace ContactRegistrationMVC.Repository
             return contactDB;
 
         }
+
+        public bool Delete(int id)
+        {
+            ContactModel contactDB = ListById(id);
+
+            if (contactDB == null) throw new Exception("Houve um erro na deleção do contato!");
+
+            _bankContext.Contacts.Remove(contactDB);
+            _bankContext.SaveChanges();
+            return true;
+            
+        }
+
     }
 }
