@@ -45,15 +45,27 @@ namespace ContactRegistrationMVC.Controllers
         [HttpPost]
         public IActionResult CreateContact(ContactModel contact)
         {
-            _contactRepository.ToAdd(contact);
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                _contactRepository.ToAdd(contact);
+                return RedirectToAction("Index");
+            }
+
+            return View(contact);
+
         }
 
         [HttpPost]
         public IActionResult UpdateContact(ContactModel contact)
         {
-            _contactRepository.ToUpdate(contact);
-            return RedirectToAction("Index");
+
+            if(ModelState.IsValid)
+            {
+                _contactRepository.ToUpdate(contact);
+                return RedirectToAction("Index");
+            }
+
+            return View("EditContact", contact);
         }
     }
 }
